@@ -2,7 +2,7 @@ using FourierTools, Interpolations
 
 using Random, Plots, LinearAlgebra
 
-function generate_fading_star_image(width::Int, height::Int, radius::Int)
+function generate_fading_star_image(width, height, radius)
     image = zeros(Float64, height, width)
 
     x_center = div(width, 2)
@@ -22,7 +22,7 @@ function generate_fading_star_image(width::Int, height::Int, radius::Int)
     return image
 end
 
-function apply_affine_transformation(image::Array, transformation_matrix::Array)
+function apply_affine_transformation(image, transformation_matrix)
     height, width = size(image)
     deformed_image = zeros(Float64, height, width)
 
