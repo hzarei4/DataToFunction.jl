@@ -49,11 +49,11 @@ star_image = generate_fading_star_image(width, height, radius)
 
 translation = [1 0 0; 0 1 0; 0 0 1]
 rotation = [cos(pi / 3) -sin(pi / 3) 0; sin(pi / 3) cos(pi / 3) 0; 0 0 1]
-scaling = [1.1 0 0; 0 1.1 0; 0 0 1]
+scaling = [1.5 0 0; 0 1.1 0; 0 0 1]
 shearing = [1 0.1 0; 0.1 1 0; 0 0 1]
 
 # Combine the transformations
-transformation_matrix = translation * rotation #* scaling * shearing
+transformation_matrix =  scaling #*shearing #* scaling #* rotation #* scaling * * translation * 
 
 deformed_star_image = apply_affine_transformation(star_image, transformation_matrix)
 
@@ -61,4 +61,5 @@ deformed_star_image = apply_affine_transformation(star_image, transformation_mat
 
 
 
-heatmap(deformed_star_image, aspect_ratio=1)
+plot(heatmap(star_image, aspect_ratio=1), 
+        heatmap(deformed_star_image, aspect_ratio=1);)
